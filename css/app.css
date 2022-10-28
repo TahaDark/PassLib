@@ -20,6 +20,7 @@ header {
     height: 100px;
     padding: 0 15px;
     margin: 0 auto;
+    box-shadow: 0px 0px 20px #333533;
     border-radius: 20px;
     margin-bottom: 20px;
 }
@@ -76,6 +77,7 @@ header div #addbtn:hover {
 
 main {
     background-color: #fffcf2;
+    box-shadow: 0px 0px 20px #333533;
     width: 60%;
     padding: 15px;
     /* height: 700px; */
@@ -84,12 +86,13 @@ main {
     border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
     align-content: flex-start;
-    justify-content: space-evenly;
-
 }
 
 main section {
+    /* background-color: #e5383b; */
     width: 30%;
     height: 150px;
     margin: 15px;
@@ -100,8 +103,6 @@ main section {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* flex-grow: 1; */
-    padding: 10px 0;
 }
 
 section div {
@@ -112,14 +113,13 @@ section div {
     align-items: center;
 }
 section>span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* background-color: #ff9e00; */
     width: 50%;
     height: 30%;
     border-radius: 15px;
     border: 3px solid #403d39;
     text-align: center;
+    line-height: 40px;
     transition: all 0.1s;
 }
 
