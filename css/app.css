@@ -48,6 +48,9 @@ header div input {
     background-color: #e9ecef;
     border-radius: 10px;
     transition: all 0.1s;
+    border: 3px solid #403d39;
+    box-sizing: border-box;
+
 }
 
 header div input:focus {
