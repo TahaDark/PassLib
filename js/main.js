@@ -1,53 +1,87 @@
 let maindiv = document.querySelector("main")
 let passwords = []
 
+pnameel = function() {return document.getElementById("name").value}
+pidel = function() {return document.getElementById("id").value}
+ppassel = function() {return document.getElementById("pass").value}
+
 function getLib() {
-    
+
     keys = Object.keys(localStorage)
     i = keys.length;
     
     while ( i-- ) {
-        getplace = keys[i]
-        getpass = localStorage.getItem(keys[i])
+        // console.log(i)
+
+        getname = keys[i]
+        getidanpass = localStorage.getItem(keys[i])
+        getidanpass = getidanpass.split("  ")
         passwords[i] = {
-            place: getplace,
-            pass: getpass,
+            pname: getname,
+            pid: getidanpass[0],
+            ppass: getidanpass[1],
         }
     }
 }
 
+
 function updateBars() {
     getLib()
+
+    maindiv.innerHTML = ""
+
     for (i in passwords) {
-        number = parseInt(i) + 1
-        place = passwords[i].place
-        pass = passwords[i].pass
-        console.log(number);
-        console.log(place)
-        console.log(pass)
+        var pnumber = parseInt(i) + 1
+        var pname = passwords[i].pname
+        var pid = passwords[i].pid
+        var ppass = passwords[i].ppass
+        console.log(pnumber);
+        console.log(pname)
+        console.log(pid)
+        console.log(ppass)
     
-        let passbardiv = document.createElement("div")
-        let numberspan = document.createElement("span")
-        numberspan.innerText = number
-        let namespan = document.createElement("span")
-        namespan.innerText = place
-        let passspan = document.createElement("span")
-        passspan.innerText = pass
-        passbardiv.appendChild(numberspan)
-        passbardiv.appendChild(namespan)
-        passbardiv.appendChild(passspan)
+        let passsection = document.createElement("section")
+        passsection.innerHTML = `
+            <div>
+                <span>Name: ${pname}</span>
+                <span>ID: ${pid}</span>
+                <span id="pass${pnumber}">Password: ***</span>
+            </div>
+            <span><span onclick="showpass(${pnumber})">Show Password</span></span>`
+        maindiv.appendChild(passsection)
+
+        // let passbardiv = document.createElement("div")
+        // let numberspan = document.createElement("span")
+        // numberspan.innerText = number
+        // let namespan = document.createElement("span")
+        // namespan.innerText = place
+        // let passspan = document.createElement("span")
+        // passspan.innerText = pass
+        // passbardiv.appendChild(numberspan)
+        // passbardiv.appendChild(namespan)
+        // passbardiv.appendChild(passspan)
     
-        maindiv.appendChild(passbardiv)
-    
+        // maindiv.appendChild(passbardiv)
+
     }    
 }
 
 updateBars()
 
-function addPass(name,pass) {
-    localStorage.setItem(name,pass)
-    getLib()
+function showpass(passnum) {
+    document.getElementById("pass" + passnum).innerText = "Password: " + passwords[passnum - 1].ppass
 }
 
-
-console.log("Taha Khare")
+function addPass() {
+    if (pnameel() == "") {
+        alert("Fill The Name Field Please")
+    } else if (pidel() == "") {
+        alert("Fill The ID Field Please")
+    } else if (ppassel() == "") {
+        alert("Fill The Password Field Please")
+    } else {
+        idandpass = pidel() + "  " + ppassel()
+        localStorage.setItem(pnameel(),idandpass)
+        updateBars()
+    }
+}
