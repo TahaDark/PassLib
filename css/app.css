@@ -70,6 +70,7 @@ header div #addbtn {
     border: 3px solid #403d39;
     transition: all 0.1s;
     box-sizing: border-box;
+    cursor: pointer;
 
 }
 
@@ -124,6 +125,7 @@ section>span {
     text-align: center;
     line-height: 40px;
     transition: all 0.1s;
+    cursor: pointer;
 }
 
 section>span:hover {
