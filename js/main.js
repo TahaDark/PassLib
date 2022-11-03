@@ -31,6 +31,10 @@ function getLib() {
 function updateBars() {
     getLib()
 
+    if (passwords.length == 0) {
+        maindiv.style.visibility = "hidden"
+    } else {maindiv.style.visibility = "visible"}
+
     maindiv.innerHTML = ""
 
     for (i in passwords) {
