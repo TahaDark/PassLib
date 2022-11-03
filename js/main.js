@@ -7,6 +7,9 @@ ppassel = function() {return document.getElementById("pass").value}
 
 function getLib() {
 
+    passwords = []
+
+
     keys = Object.keys(localStorage)
     i = keys.length;
     
@@ -35,20 +38,23 @@ function updateBars() {
         var pname = passwords[i].pname
         var pid = passwords[i].pid
         var ppass = passwords[i].ppass
-        console.log(pnumber);
-        console.log(pname)
-        console.log(pid)
-        console.log(ppass)
+        // console.log(pnumber);
+        // console.log(pname)
+        // console.log(pid)
+        // console.log(ppass)
     
         let passsection = document.createElement("section")
         passsection.innerHTML = `
+            <span id="X" onclick="removepass(${pnumber})">X</span>
             <div>
                 <span>Name: ${pname}</span>
                 <span>ID: ${pid}</span>
                 <span id="pass${pnumber}">Password: ***</span>
             </div>
-            <span><span onclick="showpass(${pnumber})">Show Password</span></span>`
+            <span id="showPass"><span onclick="showpass(${pnumber})">Show Password</span></span>`
+
         maindiv.appendChild(passsection)
+
 
         // let passbardiv = document.createElement("div")
         // let numberspan = document.createElement("span")
@@ -68,8 +74,13 @@ function updateBars() {
 
 updateBars()
 
-function showpass(passnum) {
-    document.getElementById("pass" + passnum).innerText = "Password: " + passwords[passnum - 1].ppass
+function showpass(passindex) {
+    document.getElementById("pass" + passindex).innerText = "Password: " + passwords[passindex - 1].ppass
+}
+
+function removepass(passindex) {
+    localStorage.removeItem(passwords[passindex - 1].pname)
+    updateBars()
 }
 
 function addPass() {
