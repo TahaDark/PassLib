@@ -55,7 +55,7 @@ function updateBars() {
                 <span>ID: ${pid}</span>
                 <span id="pass${pnumber}">Password: ***</span>
             </div>
-            <span onclick="showpass(${pnumber})" id="showPass"><span>Show Password</span></span>`
+            <span onclick="showpass(${pnumber})" id="showPass"><span class="showpasstext${pnumber}">Show Password</span></span>`
 
         maindiv.appendChild(passsection)
 
@@ -79,7 +79,16 @@ function updateBars() {
 updateBars()
 
 function showpass(passindex) {
-    document.getElementById("pass" + passindex).innerText = "Password: " + passwords[passindex - 1].ppass
+    showpassel = maindiv.querySelector(`section #showPass .showpasstext${passindex}` )
+    if (showpassel.innerText == "Show Password") {
+        showpassel.innerText = "Hide Password"
+        document.getElementById("pass" + passindex).innerText = "Password: " + passwords[passindex - 1].ppass
+    } else {
+        showpassel.innerText = "Show Password"
+        document.getElementById("pass" + passindex).innerText = "Password: " + "***"
+    }
+    // showpassel.innerText = ""
+    console.log(showpassel)
 }
 
 function removepass(passindex) {
