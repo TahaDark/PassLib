@@ -51,7 +51,7 @@ function updateBars() {
                 <span>ID: ${pid}</span>
                 <span id="pass${pnumber}">Password: ***</span>
             </div>
-            <span id="showPass"><span onclick="showpass(${pnumber})">Show Password</span></span>`
+            <span onclick="showpass(${pnumber})" id="showPass"><span>Show Password</span></span>`
 
         maindiv.appendChild(passsection)
 
