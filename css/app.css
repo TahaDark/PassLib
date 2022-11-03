@@ -16,7 +16,7 @@ a {
 
 header {
     background-color: #eb5e28;
-    width: 60%;
+    max-width: 1000px;
     height: 100px;
     padding: 0 15px;
     margin: 0 auto;
