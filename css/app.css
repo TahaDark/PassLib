@@ -107,6 +107,7 @@ main section {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    position: relative;
 }
 
 section div {
@@ -116,7 +117,7 @@ section div {
     justify-content: space-between;
     align-items: center;
 }
-section>span {
+section>#showPass {
     /* background-color: #ff9e00; */
     width: 50%;
     height: 30%;
@@ -128,7 +129,17 @@ section>span {
     cursor: pointer;
 }
 
-section>span:hover {
+#X{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    font-size: x-large;
+    cursor: pointer;
+
+}
+
+section>#showPass:hover {
     transform: translateY(-2px);
     border-color: #283d3b;
 }

@@ -10,20 +10,39 @@
   <body>
     <header>
       <div>
-        <input required type="text" name="name" id="name" placeholder="App or Website Name" />
-        <input required type="text" name="id" id="id" placeholder="ID or Email" />
-        <input required type="password" name="pass" id="pass" placeholder="Password" />
+        <input
+          required
+          type="text"
+          name="name"
+          id="name"
+          placeholder="App or Website Name"
+        />
+        <input
+          required
+          type="text"
+          name="id"
+          id="id"
+          placeholder="ID or Email"
+        />
+        <input
+          required
+          type="password"
+          name="pass"
+          id="pass"
+          placeholder="Password"
+        />
         <span onclick="addPass()" id="addbtn"><span>ADD</span></span>
       </div>
     </header>
     <main>
       <section>
+        <span>X</span>
         <div>
           <span>Name:</span>
           <span>ID:</span>
           <span>Password:</span>
         </div>
-        <span><span>Show Password</span></span>
+        <span id="showPass"><span>Show Password</span></span>
       </section>
       <section>
         <div>
