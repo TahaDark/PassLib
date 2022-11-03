@@ -83,5 +83,8 @@ function addPass() {
         idandpass = pidel() + "  " + ppassel()
         localStorage.setItem(pnameel(),idandpass)
         updateBars()
+        document.getElementById("name").value = ""
+        document.getElementById("id").value = ""
+        document.getElementById("pass").value = ""
     }
 }
