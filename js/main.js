@@ -63,7 +63,7 @@ function updateBars() {
             <div>
                 <span>Name: ${pname}</span>
                 <span>ID: ${pid}</span>
-                <span id="pass${pnumber}">Password: ***</span>
+                <span id="pass${pnumber}">Password: ${toStars(ppass)}</span>
             </div>
             <span onclick="showpass(${pnumber})" id="showPass"><span class="showpasstext${pnumber}">Show Password</span></span>`
 
@@ -95,7 +95,7 @@ function showpass(passindex) {
         document.getElementById("pass" + passindex).innerText = "Password: " + passwords[passindex - 1].ppass
     } else {
         showpassel.innerText = "Show Password"
-        document.getElementById("pass" + passindex).innerText = "Password: " + "***"
+        document.getElementById("pass" + passindex).innerText = "Password: " + toStars(passwords[passindex - 1].ppass)
     }
     // showpassel.innerText = ""
     console.log(showpassel)
