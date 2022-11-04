@@ -5,6 +5,16 @@ pnameel = function() {return document.getElementById("name").value}
 pidel = function() {return document.getElementById("id").value}
 ppassel = function() {return document.getElementById("pass").value}
 
+function toStars(text) {
+    var text = text.split("")
+    var stars = []
+    for (i in text) {
+        stars.push("*")
+    }
+    finalstars = stars.join("")
+    return finalstars
+}
+
 function getLib() {
 
     passwords = []
